@@ -1,11 +1,13 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+import pytest
 
 
 class ProductPage(BasePage):
     def should_be_btn(self):
         assert self.is_element_present(*ProductPageLocators.btn_add_to_basket)
 
+    @pytest.mark.xfail
     def add_to_btn(self):
         add_to_basket = self.browser.find_element(*ProductPageLocators.btn_add_to_basket)
         add_to_basket.click()
