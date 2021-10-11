@@ -17,8 +17,15 @@ class ProductPage(BasePage):
             *ProductPageLocators.product_in_basket).text, 'Product name and added in basket product are different'
 
     def should_be_one_price(self):
-        assert self.browser\
-                   .find_element(*ProductPageLocators.price).text\
-               == self.browser.find_element(*ProductPageLocators.price_added_in_basket).text,\
-        'Price and value added to basket are different'
+        assert self.browser \
+                   .find_element(*ProductPageLocators.price).text \
+               == self.browser.find_element(*ProductPageLocators.price_added_in_basket).text, \
+            "Price and value added to basket are different"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_not_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is still here"
