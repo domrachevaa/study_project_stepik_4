@@ -24,6 +24,13 @@ class ProductPageLocators:
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success:first-child")
 
 
-class BasePageLocators():
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    btn_basket = (By.CSS_SELECTOR, "span a.btn-default")
+
+
+class BasketPageLocators:
+    basket_empty = (By.CSS_SELECTOR, ".content p")
+    basket_empty_end = (By.CSS_SELECTOR, ".content p a")
+    basket_content = (By.CSS_SELECTOR, ".basket_summary")
