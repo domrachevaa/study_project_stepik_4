@@ -12,6 +12,7 @@ link2 = "http://selenium1py.pythonanywhere.com/catalogue/the-city-and-the-stars_
 @pytest.mark.need_review
 @pytest.mark.parametrize('no', [i for i in range(10)])
 @pytest.mark.xfail
+#пройденные тесты отмечаются как xpass
 def test_guest_can_add_product_to_basket(browser, no):
     link = f"{link1}?promo=offer{no}"
     page = ProductPage(browser, link)
@@ -23,7 +24,6 @@ def test_guest_can_add_product_to_basket(browser, no):
     page.should_be_one_price()
 
 
-@pytest.mark.need_review
 @pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link1)
