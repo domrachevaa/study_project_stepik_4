@@ -68,4 +68,8 @@ class BasePage:
         btn.click()
 
     def should_be_basket(self):
-        assert self.is_element_present(*BasePageLocators.btn_basket)
+        assert self.is_element_present(*BasePageLocators.btn_basket), "Basket button is not presented"
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+            "User icon is not presented, probably unauthorised user"
